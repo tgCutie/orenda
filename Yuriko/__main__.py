@@ -82,52 +82,51 @@ def get_readable_time(seconds: int) -> str:
 yurikorobot_IMG = "https://telegra.ph/file/cac9c99b007221927659f.jpg"
 
 PM_START_TEXT = """
-*👋 Hello {} !*
-
-✗ *I'Aᴍ Aɴ Aɴɪᴍᴇ-Tʜᴇᴍᴇ Mᴀɴᴀɢᴇᴍᴇɴᴛ Bᴏᴛ*
-✗ *Aᴍ Vᴇʀʏ Fᴀꜱᴛ Aɴᴅ  Mᴏʀᴇ Eꜰꜰɪᴄɪᴇɴᴛ  I Pʀᴏᴠɪᴅᴇ Aᴡᴇꜱᴏᴍᴇ  Fᴇᴀᴛᴜʀᴇꜱ!*
-────────────────────────
-× *Uᴘᴛɪᴍᴇ:* `{}`
-× `{}` *Uꜱᴇʀ, Aᴄʀᴏꜱꜱ* `{}` *Cʜᴀᴛꜱ.*
-────────────────────────
-✗ *Pᴏᴡᴇʀᴇᴅ 💕 Bʏ: Tᴇᴀᴍ GᴀᴜʀBᴏᴏ!*
+***𝗧ʜᴇ 𝗢ʀᴇɴᴅᴀ 🇽 ʀᴏʙᴏᴛ**\n┏━━━━━━━━━━━━━━━━\n╭──────────────\nHey I am Orenda : A Group Management Bot. [ㅤ](https://telegra.ph/file/030de36e969877fc124c5.mp4)\n╰──────────────\n╭──────────────\n➪ *Uᴘᴛɪᴍᴇ:* `{}`\n➪ `{}` *Uꜱᴇʀ, Aᴄʀᴏꜱꜱ* `{}` *Cʜᴀᴛꜱ.*\n╰──────────────\nTo know more click on the following buttons.\n\n┗━━━━━━━━━━━━━━━━\n\n[@ᴛᴇᴀᴍ 🇽 ʙᴏᴛs](http://t.me/botXnet)
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="Hᴇʟᴘ & Cᴏᴍᴍᴀɴᴅꜱ", callback_data="help_back"),
+            text="📬 𝗔ᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ", url="http://t.me/OrendaXbot?startgroup=true"),
     ],
+    
     [
-        InlineKeyboardButton(text="Aꜱꜱɪꜱᴛᴀɴᴛ", callback_data="yurikorobot_asst"),
         InlineKeyboardButton(
-            text="Iɴʟɪɴᴇ", switch_inline_query_current_chat=""
+            text="ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢 ", url=f"https://t.me/The"
         ),
     ],
+    
     [
-        InlineKeyboardButton(text="Aʙᴏᴜᴛ", callback_data="yurikorobot_"),
         InlineKeyboardButton(
-            text="Bᴀꜱɪᴄ Hᴇʟᴘ", callback_data="yurikorobot_basichelp"
+            text="⍼ 𝗜ɴʟɪɴᴇ ᛃ ", switch_inline_query_current_chat=""
         ),
+        InlineKeyboardButton(
+            text="ϟ 𝗖ʜᴀᴛ ϟ", url=f"http://t.me/chat_buzz"
+        ),
+        InlineKeyboardButton(text="⩥ 𝗦ᴜᴘᴘᴏʀᴛ ⩤", url=f"{SUPPORT_CHAT}"),
     ],
     [
-        InlineKeyboardButton(text="Aᴅᴅ Mᴇ", url="http://t.me/Miss_Elena_Robot?startgroup=true"),
+  InlineKeyboardButton(text="❔𝗛ᴇʟᴘ ", callback_data="help_back"),
+    ],
+        [
+        InlineKeyboardButton(text="𝗔ʙᴏᴜᴛ", callback_data="yurikorobot_"),
+        InlineKeyboardButton(
+            text="𝗦ᴇᴛᴜᴘ", callback_data="yurikorobot_basichelp"
+        ),
     ],
 ]
 
 
-HELP_STRINGS = """
-*✗ MAIN COMMANDS ✗*
 
-✗ /start - `Starts me! Your probably already used this.`
-✗ /help - `Click this I ll let you know about myself!`
-✗ /settings - `in PM: will send you your settings for all supported modules.`
-✗ *In A Group: Will Redirect You To Pm With All That Chats Settings.*)"""
+
+HELP_STRINGS = """Commands [ㅤ](https://telegra.ph/file/9538741ac0de8ec968c77.jpg)
+"""
 
 
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- @gauravsingh003 💕"""
+ But Orneda X bot is totaly free. 💕"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -248,7 +247,7 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/elena_support_group")]]
+                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/orenda_support_group")]]
             ),
         )
         
@@ -380,8 +379,8 @@ def yurikorobot_about_callback(update, context):
     query = update.callback_query
     if query.data == "yurikorobot_":
         query.message.edit_text(
-            text=""" *Elena* - `A bot to manage your groups with additional features!`
-            \n`Here the basic help regarding use of Elenabot.`
+            text=""" *orenda* - `A bot to manage your groups with additional features!`
+            \n`Here the basic help regarding use of orendabot.`
             
             \n`Almost all modules usage defined in the help menu, checkout by sending` `/help`
             \n`Report error/bugs click the Button`""",
@@ -391,7 +390,7 @@ def yurikorobot_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Bᴜɢ'ꜱ", url="t.me/elena_support_group"
+                            text="Bᴜɢ'ꜱ", url="t.me/orenda_support_group"
                         ),
                         InlineKeyboardButton(
                             text="Bᴏᴛ Lɪꜱᴛ", url="https://t.me/grb_network/12"
@@ -421,7 +420,7 @@ def yurikorobot_about_callback(update, context):
             
             f"\n\n✗ `Firstly Add` {dispatcher.bot.first_name} `to your group by pressing` [here](http://t.me/{dispatcher.bot.username}?startgroup=true)\n"
             f"\n✗ `After adding promote me manually with full rights for faster experience.`\n"
-            f"\n✗ `Than send` `/admincache@Miss_Elena_Robot` `in that chat to refresh admin list in My database.`\n"
+            f"\n✗ `Than send` `/admincache@Miss_orenda_Robot` `in that chat to refresh admin list in My database.`\n"
             f"\n\n*All done now use below given button's to know about use!*\n"
             f"",
             parse_mode=ParseMode.MARKDOWN,
@@ -447,7 +446,7 @@ def yurikorobot_about_callback(update, context):
         query.message.edit_text(
             text=f"*Let's Make Your Group Bit Effective Now*"
             
-            f"\n✗ `Congragulations, Elenabot now ready to manage your group.`"
+            f"\n✗ `Congragulations, orendabot now ready to manage your group.`"
             f"\n\n*Admin Tools*"
             f"\n✗ `Basic Admin tools help you to protect and powerup your group.`"
             f"\n✗ `You can ban members, Kick members, Promote someone as admin through commands of bot.`"
@@ -482,7 +481,7 @@ def yurikorobot_about_callback(update, context):
             f"\n\n✗ `2.) then promote me as admin and give all permissions except anonymous admin.`"
             f"\n\n✗ `3.) add` @Miss_security_bot `to your group:`"
             f"\n\n✗ `4.) you have our another bot.`"
-            f"\n\n✗ *Lets Enjoy The Both bots And Join Support Group @elena_support_group*"
+            f"\n\n✗ *Lets Enjoy The Both bots And Join Support Group @orenda_support_group*"
             f"\n\n*✗ Pᴏᴡᴇʀᴇᴅ 💕 Bʏ: Tᴇᴀᴍ GᴀᴜʀBᴏᴏ!*",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -494,7 +493,7 @@ def yurikorobot_about_callback(update, context):
         query.message.edit_text(
             text=f"*Let's Make Your Group Bit Effective Now*"
             
-            f"\n✗ `Congragulations, Elenabot now ready to manage your group.`"
+            f"\n✗ `Congragulations, orendabot now ready to manage your group.`"
             f"\n\n*Admin Tools*"
             f"\n✗ `Basic Admin tools help you to protect and powerup your group.`"
             f"\n✗ `You can ban members, Kick members, Promote someone as admin through commands of bot.`"
@@ -509,18 +508,18 @@ def yurikorobot_about_callback(update, context):
         )    
     elif query.data == "yurikorobot_support":
         query.message.edit_text(
-            text="* Elena Support Chats*"
+            text="* orenda Support Chats*"
             
             "\n\n✗ `Join Support Group/Channel`",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Lᴏɢ'ꜱ", url="https://t.me/elena_logs"),
+                    InlineKeyboardButton(text="Lᴏɢ'ꜱ", url="https://t.me/orenda_logs"),
                     InlineKeyboardButton(text="Nᴇᴡꜱ", url="t.me/grb_network"),
                  ],
                  [
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/elena_support_group"),
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/orenda_support_group"),
                     InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇꜱ", url="https://t.me/grb_network"),
                  ],
                  [
@@ -532,9 +531,9 @@ def yurikorobot_about_callback(update, context):
         )
     elif query.data == "yurikorobot_credit":
         query.message.edit_text(
-            text=f"<b> CREDIT FOR ELENA DEV'S</b>\n"
+            text=f"<b> CREDIT FOR orenda DEV'S</b>\n"
             
-            f"\n`✗ Here Some Developers Helping in Making The Elena Bot`",
+            f"\n`✗ Here Some Developers Helping in Making The orenda Bot`",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -560,8 +559,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..😻 I'm *Elena*
-                 \nHere is the [🔥Source Code🔥](https://t.me/elenasource) .""",
+            text=""" Hi..😻 I'm *orenda*
+                 \nHere is the [🔥Source Code🔥](https://t.me/orendasource) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
