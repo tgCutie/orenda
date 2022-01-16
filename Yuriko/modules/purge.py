@@ -71,7 +71,7 @@ async def delete_messages(event):
 
     message = await event.get_reply_message()
     if not message:
-        await event.reply("Whadya want to delete?")
+        await event.reply(" ")
         return
     chat = await event.get_input_chat()
     del_message = [message, event.message]
