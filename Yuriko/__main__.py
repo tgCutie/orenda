@@ -95,7 +95,9 @@ buttons = [
         InlineKeyboardButton(
             text="📢 𝗨ᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ  ", url=f"https://t.me/BotXnet"
         ),
-          InlineKeyboardButton(text="⩥ 𝗦ᴜᴘᴘᴏʀᴛ ⩤", url=f"http://t.me/chat_buzz"),
+          InlineKeyboardButton(text="⩥ 𝗦ᴜᴘᴘᴏʀᴛ ⩤", url=f"http://t.me/chat_buzz"
+          )        	
+        ]
     ],
         
     [
@@ -105,9 +107,7 @@ buttons = [
         InlineKeyboardButton(
             text="ϟ 𝗖ʜᴀᴛ ϟ", url=f"http://t.me/chat_buzz"
         ),
-        InlineKeyboardButton(
-            text="🛠️ 𝗦ᴇᴛᴜᴘ", callback_data="himanshu"
-        ),
+        
     ],
       
     [
@@ -455,18 +455,7 @@ def yurikorobot_about_callback(update, context):
             ),
         )
         
-        elif query.data == "himanshu":
-        query.message.edit_text(
-            text=f"*[Heya](tg://settings)*"
-            
-            f"Still updating...",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
-            ),
-        )
-
+       
     elif query.data == "yurikorobot_notes":
         query.message.edit_text(
             text=f"<b> Setting Up Notes</b>"
