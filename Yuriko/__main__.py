@@ -93,7 +93,7 @@ buttons = [
     
     [
         InlineKeyboardButton(
-            text="📢 𝗨ᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ  ", url=f"https://t.me/{}"
+            text="📢 𝗨ᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ  ", url=f"https://t.me/BotXnet"
         ),
           InlineKeyboardButton(text="⩥ 𝗦ᴜᴘᴘᴏʀᴛ ⩤", url=f"http://t.me/{}".format(SUPPORT_CHAT),
           )        	
