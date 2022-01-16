@@ -25,12 +25,12 @@ async def purge_messages(event):
         return
 
     if not await can_delete_messages(message=event):
-        await event.reply("Ma na dekha dekh skata 😴")
+        await event.reply("Error!")
         return
 
     reply_msg = await event.get_reply_message()
     if not reply_msg:
-        await event.reply("Reply do vro jaha se purge karna ha ase nahi hota ye😏.")
+        await event.reply("Reply to a message to show me where to purge from.")
         return
     messages = []
     message_id = reply_msg.id
@@ -48,7 +48,7 @@ async def purge_messages(event):
     except:
         pass
     time_ = time.perf_counter() - start
-    text = f"Purged Successfully in {time_:0.2f} Second(s) Very Fast Kiya na💫😎"
+    text = f"Purged Successfully!"
     await event.respond(text, parse_mode="markdown")
 
 async def delete_messages(event):
@@ -83,6 +83,6 @@ DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]del$")
 telethn.add_event_handler(*PURGE_HANDLER)
 telethn.add_event_handler(*DEL_HANDLER)
 
-__mod_name__ = "Purges"
-__command_list__ = ["del", "purge"]
-__handlers__ = [PURGE_HANDLER, DEL_HANDLER]
+mod_name = "Purges"
+command_list = ["del", "purge"]
+handlers = [PURGE_HANDLER, DEL_HANDLER]
