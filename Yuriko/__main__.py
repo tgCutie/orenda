@@ -93,10 +93,12 @@ buttons = [
     
     [
         InlineKeyboardButton(
-            text="ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢 ", url=f"https://t.me/The"
+            text="📢 𝗨ᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ  ", url=f"https://t.me/{}"
         ),
+          InlineKeyboardButton(text="⩥ 𝗦ᴜᴘᴘᴏʀᴛ ⩤", url=f"http://t.me/{}".format(SUPPORT_CHAT),
+          )        	
     ],
-    
+        
     [
         InlineKeyboardButton(
             text="⍼ 𝗜ɴʟɪɴᴇ ᛃ ", switch_inline_query_current_chat=""
@@ -104,16 +106,13 @@ buttons = [
         InlineKeyboardButton(
             text="ϟ 𝗖ʜᴀᴛ ϟ", url=f"http://t.me/chat_buzz"
         ),
-        InlineKeyboardButton(text="⩥ 𝗦ᴜᴘᴘᴏʀᴛ ⩤", url=f"{SUPPORT_CHAT}"),
+        InlineKeyboardButton(
+            text="🛠️ 𝗦ᴇᴛᴜᴘ", callback_data="himanshu"
+        ),
     ],
+      
     [
   InlineKeyboardButton(text="❔𝗛ᴇʟᴘ ", callback_data="help_back"),
-    ],
-        [
-        InlineKeyboardButton(text="𝗔ʙᴏᴜᴛ", callback_data="yurikorobot_"),
-        InlineKeyboardButton(
-            text="𝗦ᴇᴛᴜᴘ", callback_data="yurikorobot_basichelp"
-        ),
     ],
 ]
 
@@ -126,7 +125,7 @@ HELP_STRINGS = """Commands [ㅤ](https://telegra.ph/file/9538741ac0de8ec968c77.j
 
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- But Orneda X bot is totaly free. 💕"""
+But Orneda X bot is totaly free. 💕"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -379,18 +378,15 @@ def yurikorobot_about_callback(update, context):
     query = update.callback_query
     if query.data == "yurikorobot_":
         query.message.edit_text(
-            text=""" *orenda* - `A bot to manage your groups with additional features!`
-            \n`Here the basic help regarding use of orendabot.`
-            
-            \n`Almost all modules usage defined in the help menu, checkout by sending` `/help`
-            \n`Report error/bugs click the Button`""",
+            text=""" *𝗢ʀᴇɴᴅᴀ * : `A bot to manage your groups with awesome features!
+            \n`Almost all modules usage defined in the help menu, checkout by sending` `/help`""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Bᴜɢ'ꜱ", url="t.me/orenda_support_group"
+                            text="'supportꜱ", url="t.me/orenda_support_group"
                         ),
                         InlineKeyboardButton(
                             text="Bᴏᴛ Lɪꜱᴛ", url="https://t.me/grb_network/12"
@@ -457,6 +453,18 @@ def yurikorobot_about_callback(update, context):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Back", callback_data="yurikorobot_basichelp")]]
+            ),
+        )
+        
+        elif query.data == "himanshu":
+        query.message.edit_text(
+            text=f"*[Heya](tg://settings)*"
+            
+            f"Still updating...",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
             ),
         )
 
@@ -559,8 +567,7 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..😻 I'm *orenda*
-                 \nHere is the [🔥Source Code🔥](https://t.me/orendasource) .""",
+            text="""Source will be Released Soon....#.""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -613,7 +620,7 @@ def get_help(update: Update, context: CallbackContext):
                         InlineKeyboardButton(
                             text="Hᴇʟᴘ ❔",
                             url="t.me/{}?start=help".format(context.bot.username),
-                        )
+                    )
                     ],
                     [
                         InlineKeyboardButton(
@@ -813,7 +820,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1947924017 and DONATION_LINK:
+        if OWNER_ID != 5035631351 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
@@ -861,7 +868,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "*I Aᴍ Aʟɪᴠᴇ 🔥*")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "*𝗕ᴏᴏᴍ.𝗕ᴏᴏᴍ...sᴇᴛᴜᴘ ᴄᴏᴍᴘʟᴇᴛᴇᴅ*")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
@@ -920,6 +927,6 @@ def main():
 
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    telethn.start(bot_token=TOKEN)
+    telethn.start(bot_token'=TOKEN)
     pbot.start()
     main()
