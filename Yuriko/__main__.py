@@ -79,7 +79,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-yurikorobot_IMG = "https://telegra.ph/file/cac9c99b007221927659f.jpg"
+yurikorobot_IMG = "https://telegra.ph/file/3de27c728c27fe249776b.jpg"
 
 PM_START_TEXT = """
 ***𝗧ʜᴇ 𝗢ʀᴇɴᴅᴀ 🇽 ʀᴏʙᴏᴛ**\n┏━━━━━━━━━━━━━━━━\n╭──────────────\nHey I am Orenda : A Group Management Bot. [ㅤ](https://telegra.ph/file/030de36e969877fc124c5.mp4)\n╰──────────────\n╭──────────────\n➪ *Uᴘᴛɪᴍᴇ:* `{}`\n➪ `{}` *Uꜱᴇʀ, Aᴄʀᴏꜱꜱ* `{}` *Cʜᴀᴛꜱ.*\n╰──────────────\nTo know more click on the following buttons.\n\n┗━━━━━━━━━━━━━━━━\n\n[@ᴛᴇᴀᴍ 🇽 ʙᴏᴛs](http://t.me/botXnet)
