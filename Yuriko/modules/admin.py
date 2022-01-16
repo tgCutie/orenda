@@ -176,7 +176,7 @@ def promote(update: Update, context: CallbackContext) -> str:
         not (promoter.can_promote_members or promoter.status == "creator")
         and user.id not in DRAGONS
     ):
-        message.reply_text("Bhai,Bhen jo bhi ho apke pass ye right na ha sorry aur so sameless you are saste admin  🙂 dil se bura laga support @elena_support_group")
+        message.reply_text("You Don't have enough rights to Promote a User.")
         return
 
     user_id = extract_user(message, args)
@@ -193,11 +193,11 @@ def promote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status in ('administrator', 'creator'):
-        message.reply_text("How Maltb ma fhir se usko admin bano wo jabki already admin ha🥺")
+        message.reply_text("This person is Already an Admin...")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself!🤣 Koi admin ha wo merko admin dega 🤔")
+        message.reply_text("I dont have enough rights to promote **Myself.**")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -218,9 +218,9 @@ def promote(update: Update, context: CallbackContext) -> str:
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
-            message.reply_text("I can't promote🤣 someone who isn't in the group.🙂")
+            message.reply_text("The Replied User is not present here.")
         else:
-            message.reply_text("Bhai kuch occured name se error ha for promoting.😏💫")
+            message.reply_text("❓ Error while promoting..\nPlease Report this Issue in My Support Group.\nLink : [Click Here](http://t.me/Chat_Buzz)")
         return
 
     bot.sendMessage(
@@ -258,8 +258,7 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
         not (promoter.can_promote_members or promoter.status == "creator")
         and user.id not in DRAGONS
     ):
-        message.reply_text("Bhai,Bhen jo bhi ho apke pass ye right na ha sorry 🙂 dil se bura laga support @elena_support_group")
-        return
+        message.reply_text("You Dont have enough rights to promote a user.")
 
     user_id = extract_user(message, args)
 
@@ -275,11 +274,11 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status in ('administrator', 'creator'):
-        message.reply_text("How Maltb ma fhir se usko admin bano wo jabki already admin ha🥺")
+        message.reply_text("The Replied user is already an Admin.")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself!🤣 Koi admin ha wo merko admin dega 🤔.")
+        message.reply_text("I dont have enough rights to promote myself. Please try to promote me manually.")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -295,20 +294,20 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
         )
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
-            message.reply_text("I can't promote someone who isn't in the group.💫")
+            message.reply_text("I can't promote someone who isn't in the group.")
         else:
             message.reply_text("An error occured while promoting.")
         return
 
     bot.sendMessage(
         chat.id,
-        f"Lowpromoting a user in <b>{chat.title}<b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
+        f"Promoting a user in <b>{chat.title}<b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
         parse_mode=ParseMode.HTML,
     )
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#LOWPROMOTED\n"
+        f"#PROMOTED\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
     )
@@ -352,11 +351,11 @@ def fullpromote(update: Update, context: CallbackContext) -> str:
         return
 
     if user_member.status in ('administrator', 'creator'):
-        message.reply_text("How Maltb ma fhir se usko admin bano wo jabki already admin ha🥺")
+        message.reply_text("The replied user is already an admin.")
         return
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself!🤣 Koi admin ha wo merko admin dega 🤔")
+        message.reply_text("I dont have enough rights to promote myself.")
         return
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -434,11 +433,11 @@ def demote(update: Update, context: CallbackContext) -> str:
         return
 
     if not user_member.status == "administrator":
-        message.reply_text("Can't demote what wasn't promoted!🎉")
+        message.reply_text("Can't demote that person who is not even promoted!")
         return
 
     if user_id == bot.id:
-        message.reply_text("Agar merko demote kiya to dekha lena 😏 aur me apne apko demote na kar skta sed🥺")
+        message.reply_text("Can't Demote myself.\nIf you are facing problem in using me then please contact in our support group.\nLink : [Click Here](http://t.me/chat_buzz)")
         return
 
     try:
@@ -922,51 +921,50 @@ def button(update: Update, context: CallbackContext) -> str:
 __help__ = """
 *User Commands*:
 
-✗ /admins - `list of admins in the chat`
+ /admins - `list of admins in the chat`
 
-✗ /pinned - `to get the current pinned message.`
+ /pinned - `to get the current pinned message.`
 
 *The Following Commands are Admins only:* 
 
-✗ /pin - `silently pins the message replied to - add 'loud' or 'notify' to give notifs to users`
+ /pin - `silently pins the message replied to - add 'loud' or 'notify' to give notifs to users`
 
-✗ /unpin - `unpins the currently pinned message`
+ /unpin - `unpins the currently pinned message`
 
-✗ /invitelink - `gets invitelink`
+ /invitelink - `gets invitelink`
 
-✗ /promote - `promotes the user replied to`
+ /promote - `promotes the user replied to`
 
-✗ /fullpromote - `promotes the user replied to with full rights`
+ /fullpromote - `promotes the user replied to with full rights`
 
-✗ /demote - `demotes the user replied to`
+ /demote - `demotes the user replied to`
 
-✗ /title - `<title here> sets a custom title for an admin that the bot promoted`
+ /title - `<title here> sets a custom title for an admin that the bot promoted`
 
-✗ /admincache - `force refresh the admins list`
+ /admincache - `force refresh the admins list`
 
-✗ /del - `deletes the message you replied to`
+ /del - `deletes the message you replied to`
 
-✗ /purge - `deletes all messages between this and the replied to message.`
+ /purge - `deletes all messages between this and the replied to message.`
 
-✗ /purge - `<integer X> deletes the replied message, and X messages following it if replied to a message.`
+ /purge - `<integer X> deletes the replied message, and X messages following it if replied to a message.`
 
-✗ /setgtitle - `<text> set group title`
+ /setgtitle - `<text> set group title`
 
-✗ /setgpic - `reply to an image to set as group photo`
+ /setgpic - `reply to an image to set as group photo`
 
-✗ /setdesc - `Set group description`
+ /setdesc - `Set group description`
 
-✗ /setsticker - `Set group sticker`
+ /setsticker - `Set group sticker`
 
 *Rules*:
 
-✗ /rules - `get the rules for this chat.`
+ /rules - `get the rules for this chat.`
 
-✗ /setrules - `<your rules here>  set the rules for this chat.`
+ /setrules - `<your rules here>  set the rules for this chat.`
 
-✗ /clearrules - `clear the rules for this chat.`
+ /clearrules - `clear the rules for this chat.`
 
-*✗ Pᴏᴡᴇʀᴇᴅ 💕 Bʏ: Tᴇᴀᴍ GᴀᴜʀBᴏᴏ!*
 """
 
 SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.chat_type.groups, run_async=True)
